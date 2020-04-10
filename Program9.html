@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Program9</title>
+    <style>
+    li{
+        letter-spacing : 3px;
+        font-size: 25px;
+        font-weight: bold;
+        color:blue;
+    }
+        </style>
+</head>
+<body>
+<input id='champ' type="text" placeholder='Ecrire vos courses ici'>
+<input id='ajouter' type="button" value='ajouter'>
+<ul></ul>
+    <script>
+        // créer des raccourcis pour simplifier le code
+        let champ = document.getElementById('champ');
+        let bouton_ajouter = document.getElementById('ajouter');
+        // en cliquant sur le bouton
+        bouton_ajouter.addEventListener('click',myFunction);
+                function myFunction() {
+                    // Récupèrer le contenu du champ
+                    let contenu = champ.value;
+                    // Découper le texte en fonction des virgules
+                    let tableau_valeurs = contenu.split(',');
+                    // Boucle tant qu'il ya des éléments
+                    for (let i = 0; i < tableau_valeurs.length ; i++ ){
+                        // Créer un élément de liste
+                        let el = document.createElement('li');
+                        // Ajouter la valeur selon index du tableau
+                        el.innerHTML = tableau_valeurs[i];
+                        // Afficher l'élément de liste
+                        document.querySelector('ul').appendChild(el);    
+                    }
+                // vider le champ de texte
+                champ.value = '';
+                }    
+    </script>
+</body>
+</html>
